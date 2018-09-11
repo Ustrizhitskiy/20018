@@ -1,7 +1,21 @@
 import java.util.Scanner;
 
 public class StringSort {
-    public static void bubbleSort(String[] arr) {
+    private static String[] createList() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите число элементов массива: ");
+        int count = in.nextInt();
+        Scanner in2 = new Scanner(System.in);
+        String[] list = new String[count];
+        for (int i = 0; i < count; i++) {
+            System.out.print("Введите " + (i + 1) + "-ый элемент массива: ");
+            String a = in2.nextLine();
+            list[i] = a;
+        }
+        return list;
+    }
+
+    private static void bubbleSort(String[] arr) {
         String max;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
@@ -15,19 +29,10 @@ public class StringSort {
     }
 
     public static void main (String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите число элементов массива: ");
-        int count = in.nextInt();
-        Scanner in2 = new Scanner(System.in);
-        String[] list = new String[count];
-        for (int i = 0; i < count; i++) {
-            System.out.print("Введите " + (i + 1) + "-ый элемент массива: ");
-            String a = in2.nextLine();
-            list[i] = a;
-        }
 
+        String[] list = createList();
         System.out.print("Введенный массив: {");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < list.length; i++) {
             System.out.print(list[i] + ", ");
         }
         System.out.println("\b\b}");
@@ -35,8 +40,8 @@ public class StringSort {
         bubbleSort(list);
         System.out.print("Отсортированный массив:");
         System.out.print("{");
-        for (int i = 0; i < count; i++) {
-            System.out.print(list[i] + ", ");
+        for (String aList : list) {
+            System.out.print(aList + ", ");
         }
         System.out.print("\b\b}");
     }
