@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Our grade</p>
+
+    <div>
+        <tr th:each="learner : ${learners}">
+            <td th:text="${learner.id}"></td>
+            <td th:text="${learner.firstName}"></td>
+            <td th:text="${learner.lastName}"></td><br>
+        </tr>
+    </div>
+
+    <br>
+    <p>Input new learner:</p>
+<!--    <form action="obrabotka" method=post">
+        <table>
+            <tr>
+                <td>Input first name: </td>
+                <td><input type="text" name="first_name"></td>
+            </tr>
+            <tr>
+                <td>Input last name: </td>
+                <td><input type="text" name="fast_name"></td>
+            </tr>
+        </table>
+        <button>Add learner</button>
+    </form>-->
+    <form action="#" th:action="@{/addlearner}" th:object="${learner}" method="post">
+        <p>Input first name: <input type="text" th:field="*{firstName}" /></p>
+        <p>Input last name: <input type="text" th:field="*{lastName}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
