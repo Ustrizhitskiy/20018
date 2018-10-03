@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new learner</title>
+</head>
+<body>
+    <form th:object="${learnerForm}" method="post">
+        <p>Input first name:
+            <!-- Названия полей должны совпадать с именами переменных в модели (firstName и lastName) -->
+            <input type="text" th:field="*{firstName}" placeholder="firstName"/>
+        </p>
+        <p>Input last name:
+            <input type="text" th:field="*{lastName}" placeholder="lastName"/>
+        </p>
+        <p>Input grade name:
+            <input type="text" th:field="*{gradeName}" placeholder="gradeName"/>
+        </p>
+        <input type="submit" value="Create" />
+        <input type="reset" value="Reset" />
+    </form>
+</body>
+</html>
